@@ -2,6 +2,55 @@ const urlParams = new URLSearchParams(window.location.search);
 let userId = urlParams.get("userId");
 let path = window.location.search;
 let data;
+function skeletonProfileArea()
+{
+  return `
+  <img class="skeleton">
+    </div>
+    <div class="col-12 mt-3  skeleton-profile-name">
+        <p class="fs-3 skeleton mb-3"></p>
+        <p class="fs-3 skeleton mb-3"></p>
+    </div>
+    <div class="col-12 mt-2 mb-2 skeleton-profile-link d-flex">
+        <p class="skeleton"></p>
+        <p class="skeleton ms-2"></p>
+    </div>
+    <div class="col-12 mt-2 d-flex skeleton-profile-follower">
+        <p class="fs-3 skeleton"></p>
+        <p class="ms-2 skeleton"></p>`
+}
+function skeletonTweets()
+{
+    return `<div class="card col-12 text-white">
+  <div class="row">
+    <div class="col-1 py-4">
+      <img class="img-fluid">
+    </div>
+    <div class="col-10 py-4">
+      <div class="card-body skeleton-card-body">
+        <div class="d-flex mb-3">
+          <h5 class="skeleton"></h5>
+          <h5 class="mb-0 fw-light ms-2 skeleton"></h5>
+          <h5 class="ms-1 mb-0 fw-light skeleton"></h5>
+        </div>
+        <h6 class="mb-3 text-uppercase skeleton"></h3>
+        <p class="skeleton"></p>  
+      </div>
+      <div class="d-flex skeleton-icons-div mt-4">
+        <i class="skeleton"><span></span></i>
+        <i class="skeleton"></i>
+        <i class="skeleton"><span></span></i>
+        <i class="skeleton"></i>
+      </div>
+    </div>
+  </div>
+</div>`
+}
+for(let i=0;i<10;i++)
+{
+  document.getElementById("Tweets").innerHTML += skeletonTweets()
+}
+document.getElementById("profileArea").innerHTML = skeletonProfileArea()
 async function main() {
   try {
     const temp = getPosts();
@@ -37,6 +86,7 @@ async function main() {
         }
       }
     }
+    profile.innerHTML = ""
     profile.innerHTML += createProfileArea()
     function randomNum()
     {
@@ -120,6 +170,7 @@ async function main() {
       }
     }
     info.innerHTML = createInfoArea();
+    tweets.innerHTML = "";
     for (let i = 0; i < posts.length; i++) {
       tweets.innerHTML += createCards(posts[i],randNum,likeNum);
     }

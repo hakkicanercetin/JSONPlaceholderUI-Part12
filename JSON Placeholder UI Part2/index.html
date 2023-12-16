@@ -7,7 +7,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-    
+    <style>
+      .skeleton-card-body h6
+      {
+        width: 250px;
+        height: 15px;
+        border-radius: 30px;
+      }
+      .skeleton-card-body p
+      {
+        width: 100%;
+        height: 0.7rem;
+        margin-bottom: 0;
+        border-radius: 0.25rem;
+      }
+      .skeleton-card-body div h5
+      {
+        width: 120px;
+        height: 15px;
+        border-radius: 30px;
+      }
+      .skeleton-icons-div i
+      {
+        width: 30px;
+        height: 15px;
+        border-radius: 30px;
+      }
+      .skeleton
+      {
+        animation: skeleton-loading 1s linear infinite alternate;
+      }
+      @keyframes skeleton-loading {
+        0%
+        {
+          background-color: hsl(200,20%,10%);
+        }
+        100%
+        {
+          background-color: hsl(200,20%,95%);
+        }
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg">
@@ -16,7 +56,9 @@
       </div>
     </nav>
     <div class="container">
-    <div class="row mt-3"></div>
+    <div class="row mt-3">
+      
+    </div>
     </div>
     <footer>
       <hr class="text-white">

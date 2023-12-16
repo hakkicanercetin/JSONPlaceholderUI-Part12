@@ -1,5 +1,37 @@
 let data;
 let data2;
+function skeletonPost()
+{
+  return `
+  <div class="card col-12 text-white">
+        <div class="row">
+          <div class="col-1 py-4">
+            <img class="img-fluid">
+          </div>
+          <div class="col-10 py-4">
+            <div class="card-body skeleton-card-body">
+              <div class="d-flex mb-3">
+                <h5 class="skeleton"></h5>
+                <h5 class="mb-0 fw-light ms-2 skeleton"></h5>
+                <h5 class="ms-1 mb-0 fw-light skeleton"></h5>
+              </div>
+              <h6 class="mb-3 text-uppercase skeleton"></h3>
+              <p class="skeleton"></p>  
+            </div>
+            <div class="d-flex skeleton-icons-div mt-4">
+              <i class="skeleton"><span></span></i>
+              <i class="skeleton"></i>
+              <i class="skeleton"><span></span></i>
+              <i class="skeleton"></i>
+            </div>
+          </div>
+        </div>
+      </div>`
+}
+for(let i=0;i<20;i++)
+{
+  document.getElementsByClassName("row")[0].innerHTML += skeletonPost();
+}
 async function printPosts()
 {
     let randomNumber = createRandomNumber()
@@ -43,7 +75,8 @@ async function printPosts()
         }
     }
     let row = document.getElementsByClassName("row")[0];
-    for(let i=0;i<20;i++)
+    row.innerHTML = ""
+     for(let i=0;i<20;i++)
     {
         row.innerHTML += createPosts(posts[randomNumber[i]],randNum);
     }
